@@ -189,6 +189,24 @@ window.addTask = async function () {
     showError("Cannot set task to past time!");
     return;
   }
+  
+  const timeConflict = tasks.some(task => {
+    const existingTaskTime = new Date(`${task.dueDate}T${task.dueTime}`);
+    // Check if the times match exactly
+    return (
+      task.dueDate === dateVal && 
+      task.dueTime === timeVal && 
+      !task.completed // Only consider active tasks
+    );
+  });
+  
+  if (timeConflict) {
+    dueDate.classList.add("input-error");
+    dueTime.classList.add("input-error");
+    showError("Another task is already scheduled at this exact date and time!");
+    return;
+  }
+  
   let iconBase64 = "";
   if (taskIconInput?.files[0]) {
     try {
