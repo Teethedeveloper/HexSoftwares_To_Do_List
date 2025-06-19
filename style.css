@@ -230,10 +230,63 @@ body.dark-mode #errorMessage { background: #ff8787; }
 #notification-container .close-btn:hover { color: #ddd; }
 
 @media (max-width: 768px) {
-  .container { margin: 10px; padding: 15px; }
-  #controls { margin: 10px; padding: 15px; }
-  #taskList li { flex-direction: column; align-items: flex-start; }
-  .filters, .sort-options, .task-form { flex-direction: column; align-items: center; }
-  #searchInput, #taskInput, #dueDate, #dueTime { width: 100%; max-width: 300px; }
-  #successMessage, #errorMessage { width: 90%; }
+  .container {
+    margin: 10px;
+    padding: 15px;
+  }
+  #controls {
+    margin: 10px;
+    padding: 15px;
+  }
+  #taskList li {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 12px;
+  }
+  .filters,
+  .sort-options,
+  .task-form,
+  .task-controls {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+    width: 100%;
+  }
+  #searchInput,
+  #taskInput,
+  #dueDate,
+  #dueTime,
+  #prioritySelect,
+  #categorySelect,
+  .task-form button,
+  .filters button,
+  .sort-options button,
+  .task-controls select {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 8px;
+  }
+  .task-form label {
+    display: block;
+    text-align: center;
+    width: 100%;
+    margin-bottom: 4px;
+  }
+  #successMessage,
+  #errorMessage {
+    width: 95%;
+    font-size: 15px;
+    padding: 10px;
+  }
+  .progress-circle {
+    width: 60px;
+    height: 60px;
+  }
+  header {
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+  }
 }
