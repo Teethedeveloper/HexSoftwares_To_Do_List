@@ -59,11 +59,17 @@
     </div>
   </div>
   <div class="task-form">
+    <label for="taskInput">New task</label>
     <input id="taskInput" type="text" placeholder="Add a task" aria-label="New task">
+
+    <label for="dueDate">Due date</label>
     <input id="dueDate" type="date" aria-label="Due date">
+
+    <label for="dueTime">Due time</label>
     <input id="dueTime" type="time" aria-label="Due time">
+
     <button onclick="addTask()">Add Task</button>
-  </div>
+</div>
 </div>
 <div id="notification-container" class="notification-container hidden" role="alert"></div>
 <!-- partial -->

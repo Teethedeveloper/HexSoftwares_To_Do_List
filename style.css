@@ -128,13 +128,17 @@ button {
   cursor: pointer;
   transition: background 0.2s ease;
 }
+.task-form label {
+  color: white;
+}
 button:hover { filter: brightness(1.1); }
 button:focus { outline: 2px solid #ff6b6b; outline-offset: 2px; }
 button:disabled { opacity: 0.5; cursor: not-allowed; background: #ccc; }
 #successMessage, #errorMessage {
-  position: absolute;
+  position: fixed;
   left: 50%;
-  transform: translateX(-50%);
+  top: 50%;
+  transform: translate(-50%, -50%);
   padding: 10px 15px;
   border-radius: 12px;
   font-size: 14px;
@@ -142,17 +146,15 @@ button:disabled { opacity: 0.5; cursor: not-allowed; background: #ccc; }
   animation: fadeIn 0.3s ease;
   width: 80%;
   max-width: 400px;
-  z-index: 100;
+  z-index: 9999; /* Highest index */
 }
 #successMessage {
   background: #95e1d3;
   color: #333;
-  top: calc(100% + 10px);
 }
 #errorMessage {
   background: #ff8787;
   color: white;
-  top: calc(100% + 50px);
 }
 #notification-container {
   position: fixed;
