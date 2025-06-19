@@ -248,7 +248,7 @@ window.sortTasks = function(criteria) {
 
 window.exportTasks = function() {
   try {
-    const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(tasks));
+    const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(tasks, null, 2));
     const a = document.createElement("a");
     a.setAttribute("href", dataStr);
     a.setAttribute("download", "tasks.json");
@@ -271,7 +271,9 @@ window.importTasks = function() {
     const reader = new FileReader();
     reader.onload = event => {
       try {
-        tasks = JSON.parse(event.target.result);
+        const imported = JSON.parse(event.target.result);
+        if (!Array.isArray(imported)) throw new Error("Invalid format");
+        tasks = imported;
         debouncedSave();
         displayTasks(tasks);
         tasks.forEach(task => scheduleNotification(task));
